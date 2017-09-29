@@ -28,6 +28,11 @@ class TestPath extends \PHPUnit_Framework_TestCase
             '#/paths/%2Fpet%2F%7BpetId%7D/post/parameters/2/required',
             '#/paths/*/*/parameters/...'
         ));
+
+        $this->assertFalse(Path::fitsPattern(
+            "#/definitions/ReservationCopyRequest",
+            '#/definitions/*/properties/*'
+        ));
     }
 
 }

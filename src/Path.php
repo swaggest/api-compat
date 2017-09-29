@@ -24,6 +24,9 @@ class Path
                 return false;
             }
         }
+        if (count($pattern) > count($path)) {
+            return false;
+        }
         return true;
     }
 
