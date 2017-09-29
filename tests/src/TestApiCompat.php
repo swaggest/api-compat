@@ -34,7 +34,7 @@ original: "formData"
 new: "header"
 Parameter type has changed at #/paths/'/pet/{petId}/uploadImage'/post/parameters/1/type
 original: "string"
-new: "integet"
+new: "integer"
 Parameter schema has changed at #/paths/'/store/order'/post/parameters/0/schema/'$ref'
 original: "#/definitions/Order"
 new: "#/definitions/OrderDifferent"

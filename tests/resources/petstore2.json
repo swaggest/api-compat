@@ -409,7 +409,7 @@
                         "in": "header",
                         "description": "Additional data to pass to server",
                         "required": false,
-                        "type": "integet",
+                        "type": "integer",
                         "format": "int64"
                     },
                     {
