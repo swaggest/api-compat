@@ -1,0 +1,34 @@
+{
+    "name": "swaggest/api-compat",
+    "description": "API compatibility checker for swagger.json",
+    "type": "tool",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Viacheslav Poturaev",
+            "email": "vearutop@gmail.com"
+        }
+    ],
+    "require": {
+        "swaggest/json-diff": "^1",
+        "php-yaoi/php-yaoi": "^1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8.23",
+        "phpunit/php-code-coverage": "2.2.4",
+        "codeclimate/php-test-reporter": "^0.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Swaggest\\ApiCompat\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Swaggest\\ApiCompat\\Tests\\": "tests/src"
+        }
+    },
+    "bin": [
+        "bin/api-compat"
+    ]
+}
