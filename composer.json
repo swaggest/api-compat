@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "swaggest/json-diff": "^1.1.1",
+        "swaggest/json-diff": "^1.1.2",
         "php-yaoi/php-yaoi": "^1"
     },
     "require-dev": {
