@@ -2,9 +2,8 @@
 
 namespace Swaggest\ApiCompat;
 
-
 use Swaggest\JsonDiff\JsonDiff;
-use Swaggest\JsonDiff\JsonProcessor;
+use Swaggest\JsonDiff\JsonPointer;
 
 class ApiCompat
 {
@@ -19,7 +18,7 @@ class ApiCompat
 
     public function __construct($original, $new)
     {
-        $this->jsonDiff = new JsonDiff($original, $new);
+        $this->jsonDiff = new JsonDiff($original, $new, JsonDiff::JSON_URI_FRAGMENT_ID + JsonDiff::REARRANGE_ARRAYS);
 
         $this->original = $original;
         $this->new = $this->jsonDiff->getRearranged();
@@ -43,7 +42,7 @@ class ApiCompat
     private function checkAdditions()
     {
         foreach ($this->jsonDiff->getAddedPaths() as $path) {
-            $new = JsonProcessor::getByPath($this->new, $path);
+            $new = JsonPointer::getByPointer($this->new, $path);
             switch (true) {
                 case Path::fitsPattern($path, '#/definitions/*/required'):
                     $this->breakingChanges[$path] =
@@ -64,7 +63,7 @@ class ApiCompat
     private function checkRemovals()
     {
         foreach ($this->jsonDiff->getRemovedPaths() as $path) {
-            $original = JsonProcessor::getByPath($this->original, $path);
+            $original = JsonPointer::getByPointer($this->original, $path);
             switch (true) {
                 case Path::fitsPattern($path, '#/paths/*'):
                     $this->breakingChanges[$path] =
@@ -89,8 +88,8 @@ class ApiCompat
     private function checkModifications()
     {
         foreach ($this->jsonDiff->getModifiedPaths() as $path) {
-            $original = JsonProcessor::getByPath($this->original, $path);
-            $new = JsonProcessor::getByPath($this->new, $path);
+            $original = JsonPointer::getByPointer($this->original, $path);
+            $new = JsonPointer::getByPointer($this->new, $path);
 
             switch (true) {
                 case Path::fitsPattern($path, '#/paths/*/*/parameters/*/name'):

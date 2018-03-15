@@ -3,6 +3,8 @@
 namespace Swaggest\ApiCompat;
 
 
+use Swaggest\JsonDiff\JsonPointer;
+
 class Path
 {
     public static function fitsPattern($path, $pattern)
@@ -32,12 +34,12 @@ class Path
 
     public static function quoteUrldecode($path)
     {
-        $path = explode('/', $path);
+        $path = JsonPointer::splitPath($path);
         foreach ($path as &$item) {
-            if ($item !== $u = urldecode($item)) {
-                $item = "'" . $u . "'";
+            if ($item !== $u = urlencode($item)) {
+                $item = "'" . $item . "'";
             }
         }
-        return implode('/', $path);
+        return '#/' . implode('/', $path);
     }
 }

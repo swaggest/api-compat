@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "swaggest/json-diff": "^1.1.2",
+        "swaggest/json-diff": "^3.1.1",
         "php-yaoi/php-yaoi": "^1"
     },
     "require-dev": {
@@ -30,5 +30,10 @@
     },
     "bin": [
         "bin/api-compat"
-    ]
+    ],
+    "config": {
+        "platform": {
+            "php": "5.4.45"
+        }
+    }
 }
