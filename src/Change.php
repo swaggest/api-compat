@@ -12,10 +12,10 @@ class Change
 
     /**
      * Change constructor.
-     * @param $path
-     * @param $message
-     * @param $originalValue
-     * @param $newValue
+     * @param string $path
+     * @param string $message
+     * @param mixed $originalValue
+     * @param mixed $newValue
      */
     public function __construct($path, $message, $originalValue = null, $newValue = null)
     {
