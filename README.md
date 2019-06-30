@@ -9,6 +9,22 @@ A PHP implementation for finding breaking changes between two `swagger.json` doc
 
 ## CLI tool
 
+### Detected breaking changes
+
+* Required constraint added to structure
+* Required parameter added
+* Body parameter added
+* Missing parameter named <name>
+* Optional parameter became required
+* Parameter disposition has changed
+* Parameter type has changed
+* Parameter schema has changed
+* Response schema has changed
+* Path removed
+* Method removed
+* Response for http code removed
+* Structure property removed
+
 ### Usage
 
 ```
