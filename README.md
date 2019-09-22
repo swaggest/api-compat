@@ -50,6 +50,20 @@ Breaking changes detected in new swagger schema
 
 ## Installation
 
+### Docker
+
+```
+docker run -v $(pwd)/tests/resources:/code  swaggest/api-compat api-compat petstore1.json petstore2.json --verbose
+Optional parameter became required at #/paths/'/pet/{petId}'/post/parameters/2/required
+Parameter disposition has changed at #/paths/'/pet/{petId}/uploadImage'/post/parameters/1/in
+original: "formData"
+new: "header"
+Parameter type has changed at #/paths/'/pet/{petId}/uploadImage'/post/parameters/1/type
+original: "string"
+new: "integer"
+...
+```
+
 ### Library
 
 ```bash

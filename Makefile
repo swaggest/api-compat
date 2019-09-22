@@ -1,5 +1,12 @@
 phar:
-	composer install --no-dev;rm -rf tests/;rm ./api-compat;rm ./api-compat.tar.gz;phar-composer build;mv ./api-compat.phar ./api-compat;tar -zcvf ./api-compat.tar.gz ./api-compat;git reset --hard;composer install
+	@test -f $$HOME/.cache/composer/phar-composer.phar || (mkdir -p $$HOME/.cache/composer/ && wget https://github.com/clue/phar-composer/releases/download/v1.0.0/phar-composer.phar -O $$HOME/.cache/composer/phar-composer.phar)
+	@composer install --no-dev;rm -rf tests/;rm ./api-compat;rm ./api-compat.tar.gz;php -d phar.readonly=off $$HOME/.cache/composer/phar-composer.phar build;mv ./api-compat.phar ./api-compat;tar -zcvf ./api-compat.tar.gz ./api-compat;composer install
+
+docker-build:
+	@docker build . -t swaggest/api-compat:$(shell git describe --abbrev=0 --tags)
+
+docker-push:
+	@docker push swaggest/api-compat
 
 lint:
 	@test -f $$HOME/.cache/composer/phpstan-0.11.8.phar || wget https://github.com/phpstan/phpstan/releases/download/0.11.8/phpstan.phar -O $$HOME/.cache/composer/phpstan-0.11.8.phar
