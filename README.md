@@ -6,6 +6,7 @@ A PHP implementation for finding breaking changes between two `swagger.json` doc
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/swaggest/api-compat/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/swaggest/api-compat/?branch=master)
 [![Code Climate](https://codeclimate.com/github/swaggest/api-compat/badges/gpa.svg)](https://codeclimate.com/github/swaggest/api-compat)
 [![Test Coverage](https://codeclimate.com/github/swaggest/api-compat/badges/coverage.svg)](https://codeclimate.com/github/swaggest/api-compat/coverage)
+[![Image Size](https://images.microbadger.com/badges/image/swaggest/api-compat.svg)](https://microbadger.com/images/swaggest/api-compat)
 
 ## CLI tool
 
