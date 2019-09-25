@@ -4,6 +4,7 @@ phar:
 
 docker-build:
 	@docker build . -t swaggest/api-compat:$(shell git describe --abbrev=0 --tags)
+	@docker build . -t swaggest/api-compat:latest
 
 docker-push:
 	@docker push swaggest/api-compat
