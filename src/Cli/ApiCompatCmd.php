@@ -23,7 +23,7 @@ class ApiCompatCmd extends Command
     static function setUpDefinition(Definition $definition, $options)
     {
         $definition->name = 'api-compat';
-        $definition->version = 'v1.0.2';
+        $definition->version = 'v1.0.3';
         $definition->description = 'API compatibility checker for swagger.json, https://github.com/swaggest/api-compat';
 
         $options->originalPath = Command\Option::create()->setIsUnnamed()->setIsRequired()
